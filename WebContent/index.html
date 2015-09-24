@@ -6,7 +6,29 @@
 	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
-
+<script>
+    var images=[
+            "img/banner.png",
+            "img/banner-bg.jpg"
+    ];
+    var current=0;
+    function prev(){
+        if (current === 0) {
+            current = images.length-1;
+        } else {
+            current -= 1;
+        }
+        document.getElementById("banner").style.backgroundImage = "url(" + images[current]+ ")";
+    }
+    function next(){
+        if (current === images.length-1) {
+            current = 0;
+        } else {
+            current += 1;
+        }
+        document.getElementById("banner").style.backgroundImage = "url(" + images[current]+ ")";
+    }
+</script>
 
 <body>
 <div id="container">
@@ -24,8 +46,8 @@
 			<div id="mylogo"><a href="www.github.com"><img src="img/pig.png" /></a></div>
 		</div>
 		<div id="banner">
-		<div class="left"><img src="img/left.png" /></div>
-		<div class="right"><img src="img/right.png" /></div>
+		<div class="left" onClick="prev();"><img src="img/left.png" /></div>
+		<div class="right" onClick="next();"><img src="img/right.png" /></div>
 		<div class="box">
 		<h1 class="heading">这是标题</h1>
 		<p class="article">正文在这里正文在这里正文在这里正文在这里正文在这里正文在这里正文在这里正文在这里正文在这里</p>
